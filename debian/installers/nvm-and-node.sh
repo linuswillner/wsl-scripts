@@ -5,11 +5,6 @@ set -e$1
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
-if [[ $EUID -ne 0 ]]; then
-  echo "This script must be run as root!"
-  exit 1
-fi
-
 # Get latest nvm version
 NVM_VERSION=$(curl -s https://api.github.com/repos/nvm-sh/nvm/releases/latest | jq -r '.tag_name')
 

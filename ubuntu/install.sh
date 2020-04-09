@@ -57,9 +57,6 @@ run_installer aliases
 prettyecho "Installing thefuck..." $CYAN
 run_installer thefuck
 
-prettyecho "Installing nvm and Node.js..." $CYAN
-run_installer nvm-and-node
-
 prettyecho "Installing Neofetch start-up display..." $CYAN
 run_installer neofetch-motd
 
