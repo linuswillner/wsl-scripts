@@ -13,6 +13,6 @@ fi
 MOTD_SCRIPT=/etc/profile.d/motd.sh
 
 sudo apt-get update > /dev/null
-sudo apt-get install neofetch > /dev/null
+sudo apt-get install neofetch -y > /dev/null
 sudo cp ../templates/motd.sh $MOTD_SCRIPT
 sudo chmod +x $MOTD_SCRIPT
