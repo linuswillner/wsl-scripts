@@ -35,8 +35,7 @@ Some scripts require sudo for running. Those which require sudo privileges are m
   - ⚙️ `essentials`: Installs essential software defined in `templates/essentials.txt`
   - ⚙️ `neofetch-motd`: Installs [Neofetch](https://github.com/dylanaraps/neofetch) display to the shell login
   - ⚠️ `nvm-and-node`: Installs [nvm](https://github.com/nvm-sh/nvm) and the latest version of Node.js
-  - ⚙️ `thefuck`: Installs [thefuck](https://github.com/nvbn/thefuck)
-
+  - `thefuck`: Installs [thefuck](https://github.com/nvbn/thefuck)
 - Ubuntu
   - `aliases`: Adds default bash aliases defined in `templates/.bash_aliases`
   - ⚙️ `essentials`: Installs essential software defined in `templates/essentials.txt`
