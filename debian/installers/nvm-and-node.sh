@@ -19,4 +19,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # Install latest Node.js
 nvm install node > /dev/null
-source ~/.bashrc
+exec bash
