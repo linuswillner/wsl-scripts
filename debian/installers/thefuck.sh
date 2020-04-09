@@ -11,7 +11,7 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 sudo apt-get update > /dev/null
-sudo apt-get install python3-dev python3-pip python3-setuptools > /dev/null
+sudo apt-get install python3-dev python3-pip python3-setuptools -y > /dev/null
 sudo pip3 install thefuck > /dev/null
 
 # Add fuck alias to bashrc
