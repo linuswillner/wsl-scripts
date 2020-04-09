@@ -1,0 +1,5 @@
+nano
+curl
+git
+jq
+unzip
