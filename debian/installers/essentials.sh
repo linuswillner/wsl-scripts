@@ -1,6 +1,6 @@
 #!/bin/bash
 # Installs essential default software
-# shellcheck disable=SC2002
+# shellcheck disable=SC2002,SC2046
 
 set "-e$1"
 
@@ -12,4 +12,4 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 sudo apt-get update
-sudo apt-get install -y "$(cat ../templates/essentials.txt | tr -s '\n' ' ')"
+sudo apt-get install -y $(cat ../templates/essentials.txt | tr -s '\n' ' ')
