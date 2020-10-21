@@ -1,7 +1,8 @@
 #!/bin/bash
 # Installs default bash aliases
+# shellcheck disable=SC1090
 
-set -e$1
+set "-e$1"
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 

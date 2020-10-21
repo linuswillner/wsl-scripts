@@ -1,7 +1,7 @@
 #!/bin/bash
 # Installs essential default software
 
-set -e$1
+set "-e$1"
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
@@ -10,5 +10,5 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-sudo apt-get update > /dev/null
-sudo apt-get install -y $(cat ../templates/essentials.txt | tr -s '\n' ' ') > /dev/null
+sudo apt-get update
+sudo apt-get install -y "$(../templates/essentials.txt | tr -s '\n' ' ')"

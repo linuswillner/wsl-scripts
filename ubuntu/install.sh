@@ -1,14 +1,15 @@
 #!/bin/bash
+# shellcheck disable=SC2181
 
-cd "$(dirname "${BASH_SOURCE[0]}")"
+cd "$(dirname "${BASH_SOURCE[0]}")" || exit 1
 
 # Define some colour shortcuts
-RESET=$(echo $'\033[0m')
-BOLD=$(echo $'\e[1m')
-RED=$(echo $'\e[31m')
-GREEN=$(echo $'\e[32m')
-CYAN=$(echo $'\e[36m')
-BGREEN=$(echo $'\e[1m\e[32m')
+RESET=$($'\033[0m')
+BOLD=$($'\e[1m')
+RED=$($'\e[31m')
+GREEN=$($'\e[32m')
+CYAN=$($'\e[36m')
+BGREEN=$($'\e[1m\e[32m')
 
 # Usage: prettyecho <message> <color>
 prettyecho () {
@@ -16,7 +17,7 @@ prettyecho () {
 }
 
 if [[ $EUID -ne 0 ]]; then
-  prettyecho "This script must be run as root!" $RED
+  prettyecho "This script must be run as root!" "$RED"
   exit 1
 fi
 
@@ -32,33 +33,33 @@ sudo chmod +x installers/*.sh
 run_installer () {
   if [[ -z "$1" ]]
   then
-    prettyecho "No installer supplied!" $RED
+    prettyecho "No installer supplied!" "$RED"
     return 1
   else
-    installers/$1.sh $VERBOSE
+    installers/"$1".sh $VERBOSE
   fi
     
   if [[ $? -ne 0 ]]
   then
-    prettyecho "Installer $1 failed!" $RED
+    prettyecho "Installer $1 failed!" "$RED"
     exit 1
   fi
   
-  prettyecho "Success!" $GREEN
+  prettyecho "Success!" "$GREEN"
   return 0
 }
 
-prettyecho "Installing essential software..." $CYAN
+prettyecho "Installing essential software..." "$CYAN"
 run_installer essentials
 
-prettyecho "Installing default bash aliases..." $CYAN
+prettyecho "Installing default bash aliases..." "$CYAN"
 run_installer aliases
 
-prettyecho "Installing thefuck..." $CYAN
+prettyecho "Installing thefuck..." "$CYAN"
 run_installer thefuck
 
-prettyecho "Installing Neofetch start-up display..." $CYAN
+prettyecho "Installing Neofetch start-up display..." "$CYAN"
 run_installer neofetch-motd
 
-prettyecho "Installation completed!" $BGREEN
+prettyecho "Installation completed!" "$BGREEN"
 exit 0

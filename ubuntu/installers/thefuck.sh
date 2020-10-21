@@ -1,7 +1,8 @@
 #!/bin/bash
 # Installs thefuck
+# shellcheck disable=SC1090
 
-set -e$1
+set "-e$1"
 
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
@@ -10,9 +11,9 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
 fi
 
-sudo apt-get update > /dev/null
-sudo apt-get install python3-dev python3-pip python3-setuptools -y > /dev/null
-sudo pip3 install thefuck > /dev/null
+sudo apt-get update
+sudo apt-get install python3-dev python3-pip python3-setuptools -y
+sudo pip3 install thefuck
 
 # Add fuck alias to bashrc
 cat <<EOF >> ~/.bashrc
