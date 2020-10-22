@@ -21,7 +21,7 @@ snap list --all | awk '{ if (!($1 == "Name")) print $1 }' |
 
 echo "Purging snapd..."
 
-sudo apt-get purge snapd
+sudo apt-get purge snapd -y
 
 # Remove directories used by Snap
 
